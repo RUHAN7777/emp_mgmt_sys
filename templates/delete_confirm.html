@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Confirm Deletion{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-6 mx-auto">
+        <div class="card shadow border-left-danger">
+            <div class="card-header bg-danger text-white">
+                <h5 class="m-0 font-weight-bold"><i class="fas fa-exclamation-triangle"></i> Confirm Deletion</h5>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-danger" role="alert">
+                    <p class="mb-0"><strong>Are you sure you want to delete this employee?</strong> This action cannot be undone.</p>
+                </div>
+                
+                <div class="employee-info p-3 bg-light rounded mb-4">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="mb-1"><span class="text-muted">ID:</span> <strong>{{ employee[0] }}</strong></p>
+                            <p class="mb-1"><span class="text-muted">Name:</span> <strong>{{ employee[1] }}</strong></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="mb-1"><span class="text-muted">Email:</span> <strong>{{ employee[2] }}</strong></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <a href="/" class="btn btn-light me-2">
+                        <i class="fas fa-times"></i> Cancel
+                    </a>
+                    <form method="POST" action="/delete/confirm" class="d-inline">
+                        <input type="hidden" name="emp_id" value="{{ employee[0] }}">
+                        <button type="submit" class="btn btn-danger">
+                            <i class="fas fa-trash"></i> Yes, Delete
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

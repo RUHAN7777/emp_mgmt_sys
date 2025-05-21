@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Update Employee{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-6 mx-auto">
+        <div class="card shadow">
+            <div class="card-header">
+                <h5 class="m-0 font-weight-bold"><i class="fas fa-user-edit"></i> Update Employee</h5>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="/update">
+                    <div class="mb-3">
+                        <label for="emp_id" class="form-label">Enter Employee ID</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="emp_id" name="emp_id" required>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-search"></i> Search
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer text-muted text-center">
+                <small>Enter the ID of the employee you want to update</small>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

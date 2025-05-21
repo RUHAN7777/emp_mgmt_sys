@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}View Salary{% endblock %}
+
+{% block content %}
+<div class="row mt-5">
+    <div class="col-lg-8 mx-auto">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0"><i class="fas fa-dollar-sign"></i> View Salary</h5>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    <div class="mb-3">
+                        <label for="emp_id" class="form-label">Enter Employee ID:</label>
+                        <input type="number" class="form-control" name="emp_id" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

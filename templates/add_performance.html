@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Add Performance Record{% endblock %}
+
+{% block content %}
+<div class="row mt-4">
+    <div class="col-lg-6 mx-auto">
+        <div class="card shadow">
+            <div class="card-header bg-warning text-dark d-flex justify-content-between align-items-center">
+                <h5 class="mb-0"><i class="fas fa-chart-line"></i> Add Performance Record</h5>
+                <a href="/dashboard" class="btn btn-light btn-sm">
+                    <i class="fas fa-arrow-left"></i> Back
+                </a>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    <div class="mb-3">
+                        <label class="form-label">Employee ID</label>
+                        <input type="number" name="emp_id" class="form-control" required placeholder="Enter Employee ID">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Review Date</label>
+                        <input type="date" name="review_date" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Ticket Count</label>
+                        <input type="number" name="ticket_count" class="form-control" required placeholder="e.g. 12">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Review Notes</label>
+                        <textarea name="review_notes" class="form-control" rows="4" placeholder="Write performance observations..." required></textarea>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-warning text-dark">
+                            <i class="fas fa-save me-1"></i> Submit
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

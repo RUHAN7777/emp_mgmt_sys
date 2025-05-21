@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Leave History{% endblock %}
+
+{% block content %}
+<div class="row mt-5">
+    <div class="col-lg-8 mx-auto">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0"><i class="fas fa-calendar-alt"></i> Leave History for Employee ID {{ emp_id }}</h5>
+            </div>
+            <div class="card-body">
+                {% if leaves %}
+                    <ul class="list-group">
+                        {% for leave in leaves %}
+                            <li class="list-group-item">
+                                <strong>{{ leave[0] }}</strong> on <strong>{{ leave[1] }}</strong><br>
+                                <span class="text-muted">Reason: </span>{{ leave[2] }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>No leave history found for this employee.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

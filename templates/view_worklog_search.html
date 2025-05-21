@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}View Work Logs{% endblock %}
+
+{% block content %}
+<div class="card custom-card shadow-sm p-4 mt-4">
+    <h3 class="mb-4 text-center text-primary">🔍 View Work Logs</h3>
+    <form method="POST">
+        <div class="mb-3">
+            <label for="emp_id" class="form-label">Enter Employee ID:</label>
+            <input type="number" name="emp_id" id="emp_id" class="form-control" placeholder="e.g. 101" required>
+        </div>
+        <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-primary">
+                <i class="fas fa-search me-1"></i> Search Logs
+            </button>
+        </div>
+    </form>
+</div>
+
+{% if worklogs %}
+<div class="card custom-card shadow-sm p-4 mt-4">
+    <h5 class="text-success">Work Logs for Employee ID: {{ emp_id }}</h5>
+    <table class="table table-hover mt-3">
+        <thead class="table-dark">
+            <tr>
+                <th>#</th>
+                <th>Date</th>
+                <th>Hours Worked</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for log in worklogs %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ log.work_date }}</td>
+                <td>{{ log.hours_worked }} hrs</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Add/Update Salary{% endblock %}
+
+{% block content %}
+<div class="row mt-4">
+    <div class="col-lg-6 mx-auto">
+        <div class="card shadow">
+            <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+                <h5 class="mb-0"><i class="fas fa-money-check-alt"></i> Add/Update Salary</h5>
+                <a href="/dashboard" class="btn btn-light btn-sm">
+                    <i class="fas fa-arrow-left"></i> Back
+                </a>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    <div class="mb-3">
+                        <label class="form-label">Employee ID</label>
+                        <input type="text" name="emp_id" class="form-control" placeholder="Enter Employee ID" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Basic</label>
+                        <input type="text" name="basic" class="form-control" placeholder="Enter Basic Salary" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">HRA</label>
+                        <input type="text" name="hra" class="form-control" placeholder="Enter HRA" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Allowances</label>
+                        <input type="text" name="allowances" class="form-control" placeholder="Enter Allowances" required>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-success">
+                            <i class="fas fa-save me-1"></i> Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

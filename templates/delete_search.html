@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Delete Employee{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-6 mx-auto">
+        <div class="card shadow border-left-danger">
+            <div class="card-header bg-danger text-white">
+                <h5 class="m-0 font-weight-bold"><i class="fas fa-user-minus"></i> Delete Employee</h5>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-warning" role="alert">
+                    <i class="fas fa-exclamation-triangle"></i> Warning: This action cannot be undone. Please verify the employee ID before proceeding.
+                </div>
+                
+                <form method="POST" action="/delete">
+                    <div class="mb-3">
+                        <label for="emp_id" class="form-label">Enter Employee ID to Delete</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="emp_id" name="emp_id" required>
+                            <button type="submit" class="btn btn-danger">
+                                <i class="fas fa-search"></i> Search
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer text-muted text-center">
+                <small>You will be asked to confirm deletion after searching</small>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

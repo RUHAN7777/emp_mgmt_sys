@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block title %}Update Employee Details{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8 mx-auto">
+        <div class="card shadow">
+            <div class="card-header">
+                <h5 class="m-0 font-weight-bold"><i class="fas fa-user-edit"></i> Update Details for Employee ID: {{ emp[0] }}</h5>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="/submit_update">
+                    <input type="hidden" name="emp_id" value="{{ emp[0] }}">
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" value="{{ emp[1] }}">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" value="{{ emp[2] }}">
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="phone" class="form-label">Phone</label>
+                            <input type="text" class="form-control" id="phone" name="phone" value="{{ emp[3] }}">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="dob" class="form-label">Date of Birth</label>
+                            <input type="date" class="form-control" id="dob" name="dob" value="{{ emp[4] }}">
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="join_date" class="form-label">Join Date</label>
+                            <input type="date" class="form-control" id="join_date" name="join_date" value="{{ emp[5] }}">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="department_id" class="form-label">Department</label>
+                            <select class="form-select" id="department_id" name="department_id">
+                                {% for dept in departments %}
+                                <option value="{{ dept[0] }}" {% if dept[0] == emp[6] %}selected{% endif %}>{{ dept[1] }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="designation_id" class="form-label">Designation</label>
+                            <select class="form-select" id="designation_id" name="designation_id">
+                                {% for desig in designations %}
+                                <option value="{{ desig[0] }}" {% if desig[0] == emp[7] %}selected{% endif %}>{{ desig[1] }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                        <a href="/employee" class="btn btn-light me-2">
+                            <i class="fas fa-times"></i> Cancel
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> Update
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
