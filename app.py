@@ -15,12 +15,13 @@ app.secret_key = os.getenv('SECRET_KEY')
 # Create PyMySQL connection
 def get_db_connection():
     return pymysql.connect(
-        host=os.getenv('MYSQL_HOST'),
-        user=os.getenv('MYSQL_USER'),
-        password=os.getenv('MYSQL_PASSWORD'),
-        db=os.getenv('MYSQL_DB'),
+        host=os.environ['DB_HOST'],
+        user=os.environ['DB_USER'],
+        password=os.environ['DB_PASSWORD'],
+        db=os.environ['DB_NAME'],
+        port=int(os.environ.get('DB_PORT', 3306)),
         cursorclass=pymysql.cursors.DictCursor,
-        autocommit=True
+        connect_timeout=10
     )
 
 def login_required(f):
