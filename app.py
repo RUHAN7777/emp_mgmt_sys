@@ -365,7 +365,7 @@ def login():
 
         conn = get_db_connection()
         with conn.cursor() as cursor:
-            cursor.execute("SELECT * FROM HR WHERE username = %s AND password = %s", (username, password))
+            cursor.execute("SELECT * FROM hr WHERE username = %s AND password = %s", (username, password))
             user = cursor.fetchone()
         conn.close()
 
@@ -394,15 +394,15 @@ def register_hr():
         conn = get_db_connection()
         try:
             with conn.cursor() as cursor:
-                cursor.execute("INSERT INTO HR (username, password) VALUES (%s, %s)", (username, password))
+                cursor.execute("INSERT INTO hr (username, password) VALUES (%s, %s)", (username, password))
             conn.commit()
         except Exception as e:
             conn.rollback()
-            return render_template('error.html', message=f"Error registering HR: {str(e)}")
+            return render_template('error.html', message=f"Error registering hr: {str(e)}")
         finally:
             conn.close()
 
-        return render_template('success.html', message='HR registered successfully!')
+        return render_template('success.html', message='hr registered successfully!')
 
     return render_template('register_hr.html')
 
