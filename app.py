@@ -19,7 +19,7 @@ def get_db_connection():
         user = os.environ['MYSQL_USER']
         password = os.environ['MYSQL_PASSWORD']
         db = os.environ['MYSQL_DATABASE']
-        port=int(os.environ.get('DB_PORT', 3306)),
+        port=int(os.environ.get('MYSQL_PORT', 3306)),
         cursorclass=pymysql.cursors.DictCursor,
         connect_timeout=10
     )
